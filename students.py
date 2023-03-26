@@ -138,6 +138,19 @@ class TestStudents(unittest.TestCase):
         # Verificar que no se pueda eliminar un estudiante que no existe
         non_existent_student = dao.delete_student(1)
         self.assertIsNone(non_existent_student)
+    
+        # Prueba para eliminar un estudiante existente
+    def test_delete_student(self):
+        dao = StudentDAO()
+        dao.create_student('Juan', 20)
+        deleted_student = dao.delete_student(1)
+        self.assertIsNotNone(deleted_student)
+        self.assertEqual(deleted_student.id, 1)
+        self.assertEqual(deleted_student.name, 'Juan')
+        self.assertEqual(deleted_student.age, 20)
+        non_existent_student = dao.get_student(1)
+        self.assertIsNone(non_existent_student)
+
 
 
 
