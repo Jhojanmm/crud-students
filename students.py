@@ -106,6 +106,20 @@ class TestStudents(unittest.TestCase):
         self.assertEqual(updated_student.name, 'Juan Pablo')
         self.assertEqual(updated_student.age, 22)
 
+        
+    # Prueba para crear un estudiante sin nombre
+def test_create_student_without_name(self):
+    dao = StudentDAO()
+    student = dao.create_student('', 20)
+    self.assertIsNotNone(student.id)
+    self.assertEqual(student.name, '')
+    self.assertEqual(student.age, 20)
+    
+    # Verificar que el estudiante exista en la base de datos
+    db_student = dao.get_student(student.id)
+    self.assertIsNotNone(db_student)
+    self.assertEqual(db_student.name, '')
+    self.assertEqual(db_student.age, 20)
 
 
 
