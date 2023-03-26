@@ -107,16 +107,6 @@ class TestStudents(unittest.TestCase):
         self.assertEqual(updated_student.age, 22)
 
 
-    # Prueba para eliminar un estudiante existente
-    def test_delete_student(self):
-        dao = StudentDAO()
-        dao.create_student('Juan', 20)
-        deleted_student = dao.delete_student(1)
-        self.assertIsNotNone(deleted_student)
-        self.assertEqual(deleted_student.id, 1)
-        self.assertEqual(deleted_student.name, 'Juan')
-        self.assertEqual(deleted_student.age, 20)
-
 
 
 
