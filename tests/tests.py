@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from ..app.students import Student, StudentDAO
+from app.estudiantes import Student, StudentDAO
 
 class TestStudentDAO(unittest.TestCase):
     def setUp(self):
